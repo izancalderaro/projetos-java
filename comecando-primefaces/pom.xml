@@ -4,7 +4,7 @@
 
 	<groupId>com.algaworks</groupId>
 	<artifactId>comecando-primefaces</artifactId>
-	<version>0.0.1-SNAPSHOT-teste2</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<properties>
