@@ -1,6 +1,7 @@
 package com.algaworks.curso.jpa2.controller;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
@@ -21,11 +22,17 @@ public class CadastroFabricanteBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	
 	@Inject
 	private CadastroFabricanteService cadastroFabricanteService;
-	
 	private Fabricante fabricante;
+	private List<Fabricante> todosFabricantes;
 	
+	public List<Fabricante> getTodosFabricantes() {
+		return todosFabricantes;
+	}
+
+
 	public void salvar() {
 		try {
 			this.cadastroFabricanteService.salvar(fabricante);
@@ -36,6 +43,7 @@ public class CadastroFabricanteBean implements Serializable {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
 	}
+	
 	
 	@PostConstruct
 	public void init() {
