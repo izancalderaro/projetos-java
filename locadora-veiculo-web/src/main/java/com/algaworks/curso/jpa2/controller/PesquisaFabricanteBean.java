@@ -50,6 +50,6 @@ public class PesquisaFabricanteBean implements Serializable {
 	
 	@PostConstruct
 	public void inicializar() {
-//		fabricantes = fabricanteDAO.buscarTodos();
+		fabricantes = fabricanteDAO.buscarTodos();
 	}
 }

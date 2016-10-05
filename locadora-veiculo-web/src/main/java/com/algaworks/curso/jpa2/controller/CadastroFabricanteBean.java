@@ -25,13 +25,9 @@ public class CadastroFabricanteBean implements Serializable {
 	
 	@Inject
 	private CadastroFabricanteService cadastroFabricanteService;
-	private Fabricante fabricante;
-	private List<Fabricante> todosFabricantes;
 	
-	public List<Fabricante> getTodosFabricantes() {
-		return todosFabricantes;
-	}
-
+	private Fabricante fabricante;
+	
 
 	public void salvar() {
 		try {
