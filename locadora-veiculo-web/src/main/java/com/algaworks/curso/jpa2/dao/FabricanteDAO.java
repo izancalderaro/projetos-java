@@ -37,6 +37,11 @@ public class FabricanteDAO implements Serializable {
 	  em.remove(fabricanteTemp);
 	  em.flush();
 	}
+
+	public Fabricante buscarPeloCodigo(Long codigo) {
+
+		return em.find(Fabricante.class, codigo);
+	}
 	
 	
 }
