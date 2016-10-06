@@ -6,10 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Fabricante {
+public class Acessorio {
 
 	private Long codigo;
-	private String nome;
+	private String descricao;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -20,12 +20,13 @@ public class Fabricante {
 		this.codigo = codigo;
 	}
 	
-	public String getNome() {
-		return nome;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -33,6 +34,7 @@ public class Fabricante {
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -41,7 +43,7 @@ public class Fabricante {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Fabricante other = (Fabricante) obj;
+		Acessorio other = (Acessorio) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;

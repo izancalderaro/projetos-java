@@ -41,6 +41,9 @@
 	    		
 	    		<p:outputLabel value="Modelo" for="modelo"/>
 	    		<p:inputText id="modelo" size="60" maxlength="80" value="#{cadastroModeloCarroBean.modeloCarro.descricao}"/>
+	    	
+	    	<p:defaultCommand target="botaoSalvar" scope="painel"/>
+	    	 
 	    	</p:panelGrid>
     	</h:form>
     </ui:define>
