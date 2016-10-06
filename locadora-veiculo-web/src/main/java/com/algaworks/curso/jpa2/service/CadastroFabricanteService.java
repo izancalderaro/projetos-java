@@ -15,7 +15,7 @@ public class CadastroFabricanteService implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Inject
-	private FabricanteDAO fabricanteDAO;
+	FabricanteDAO fabricanteDAO;
 	
 	@Transactional
 	public void salvar(Fabricante fabricante) throws NegocioException {
