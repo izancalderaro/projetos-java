@@ -10,11 +10,6 @@ import com.algaworks.curso.jpa2.util.jpa.Transactional;
 
 public class CadastroModeloCarroService implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
 	@Inject
 	ModeloCarroDAO modeloCarroDAO;
 

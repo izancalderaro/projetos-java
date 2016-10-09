@@ -10,12 +10,8 @@ import com.algaworks.curso.jpa2.util.jpa.Transactional;
 
 public class CadastroFabricanteService implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	@Inject
-	FabricanteDAO fabricanteDAO;
+	private FabricanteDAO fabricanteDAO;
 	
 	@Transactional
 	public void salvar(Fabricante fabricante) throws NegocioException {
