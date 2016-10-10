@@ -8,4 +8,4 @@
 		<class>com.algaworks.curso.jpa2.util.jpa.TransactionInterceptor</class>
 	</interceptors>
 	
-</beans> 
+</beans>

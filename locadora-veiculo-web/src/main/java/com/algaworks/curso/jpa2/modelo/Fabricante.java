@@ -26,6 +26,7 @@ public class Fabricante {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -33,6 +34,7 @@ public class Fabricante {
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -49,5 +51,5 @@ public class Fabricante {
 			return false;
 		return true;
 	}
-	
+
 }

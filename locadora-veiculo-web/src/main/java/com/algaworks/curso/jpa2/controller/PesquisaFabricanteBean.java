@@ -21,7 +21,7 @@ public class PesquisaFabricanteBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private FabricanteDAO fabricanteDAO;
+	FabricanteDAO fabricanteDAO;
 	
 	private List<Fabricante> fabricantes = new ArrayList<>();
 	

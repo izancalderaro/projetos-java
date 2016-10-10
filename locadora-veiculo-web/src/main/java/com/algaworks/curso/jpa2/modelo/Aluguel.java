@@ -17,6 +17,7 @@ public class Aluguel {
 	private Long codigo;
 	private BigDecimal valorTotal;
 	private Carro carro;
+	
 	private ApoliceSeguro apoliceSeguro;
 	
 	@Id
@@ -35,7 +36,7 @@ public class Aluguel {
 		this.valorTotal = valorTotal;
 	}
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="codigo_apolice_seguro")
 	public ApoliceSeguro getApoliceSeguro() {
 		return apoliceSeguro;

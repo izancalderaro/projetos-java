@@ -23,7 +23,7 @@
 	    			<p:commandButton value="Salvar" id="botaoSalvar" action="#{cadastroModeloCarroBean.salvar}" update="frmCadastro"/>
 	    		</p:toolbarGroup>
 	    		<p:toolbarGroup align="right">
-					<p:button value="Pesquisa"/>
+					<p:button value="Pesquisa" outcome="/modeloCarro/PesquisaModeloCarro.xhtml"/>
 				</p:toolbarGroup>
 	    	</p:toolbar>
 	    	
@@ -41,9 +41,6 @@
 	    		
 	    		<p:outputLabel value="Modelo" for="modelo"/>
 	    		<p:inputText id="modelo" size="60" maxlength="80" value="#{cadastroModeloCarroBean.modeloCarro.descricao}"/>
-	    	
-	    	<p:defaultCommand target="botaoSalvar" scope="painel"/>
-	    	 
 	    	</p:panelGrid>
     	</h:form>
     </ui:define>
