@@ -4,15 +4,18 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
 
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1004942967100049692L;
+	private static final long serialVersionUID = 1L;
+	
 	
 	private long codigo;
 	private String nome;
 	private String sobrenome;
 	private String senha;
+	
 	public long getCodigo() {
 		return codigo;
 	}
