@@ -14,16 +14,15 @@
 		<p:messages />
 
 		<p:panelGrid columns="2">
-			<p:outputLabel value="Nome" for="nome" />
-			<p:inputText id="nome" required="true" />
+			<p:outputLabel value="Valor A" for="a" />
+			<p:inputText id="a" required="true" value="#{calculadoraBean.a}"/>
 
-			<p:outputLabel value="Data de nascimento" for="dataNascimento" />
-			<p:calendar id="dataNascimento" required="true" pattern="dd/MM/yyyy"
-				readonlyInput="true" navigator="false" pages="1" mode="popup"
-				locale="pt" />
+			<p:outputLabel value="Valor B" for="b" />
+			<p:inputText id="b" required="true" value="#{calculadoraBean.b}"/>
 		</p:panelGrid>
 
-		<p:commandButton value="Atualizar" update="@form" />
+ 		<p:commandButton value="Executar" update="@form" action="#{calculadoraBean.Calcular}"/>
+
 	</h:form>
 </h:body>
 
