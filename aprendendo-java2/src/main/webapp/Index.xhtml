@@ -19,7 +19,13 @@
 
 			<p:outputLabel value="Valor B" for="b" />
 			<p:inputText id="b" required="true" value="#{calculadoraBean.b}"/>
+			
+			<p:outputLabel value="Resultado"/>
+			<p:outputLabel value="#{calculadoraBean.resultado}"/> 
+			
 		</p:panelGrid>
+
+        
 
  		<p:commandButton value="Executar" update="@form" action="#{calculadoraBean.Calcular}"/>
 

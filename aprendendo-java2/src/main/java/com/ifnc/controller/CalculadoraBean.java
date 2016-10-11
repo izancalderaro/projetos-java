@@ -17,6 +17,8 @@ public class CalculadoraBean {
 
 	private int a,b;
 	
+	private float resultado;
+	
 	@PostConstruct
 	public void init() {
 		a = 10;
@@ -25,8 +27,26 @@ public class CalculadoraBean {
 	
 	public void Calcular() {
 		
-		System.out.println(calculadora.soma(a, b));
+		resultado = calculadora.soma(a, b);
+		
+		System.out.println(resultado);
 	}
+
+	
+	public Calculadora getCalculadora() {
+		return calculadora;
+	}
+
+		
+	public void setCalculadora(Calculadora calculadora) {
+		this.calculadora = calculadora;
+	}
+
+		
+	public float getResultado() {
+		return resultado;
+	}
+
 
 	public int getA() {
 		return a;

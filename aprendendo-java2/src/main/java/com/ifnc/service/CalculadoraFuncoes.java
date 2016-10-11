@@ -1,6 +1,6 @@
 package com.ifnc.service;
 
-public class CalculadoraSoma implements Calculadora{
+public class CalculadoraFuncoes implements Calculadora{
 
 	@Override
 	public float soma(float a, float b) {
