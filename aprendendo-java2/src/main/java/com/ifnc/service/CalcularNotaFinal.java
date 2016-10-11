@@ -1,15 +1,12 @@
 package com.ifnc.service;
 
-
-import com.ifnc.util.CalculadoraReal;
-
-@CalculadoraReal
-public class CalculadoraFuncoes2 implements Calculadora{
+@NotaFinal
+public class CalcularNotaFinal implements Calculadora{
 
 	@Override
 	public float soma(float a, float b) {
 		// TODO Auto-generated method stub
-		return (a+b)*2;
+		return ((a+b)+a*2)/2;
 	}
 
 	@Override

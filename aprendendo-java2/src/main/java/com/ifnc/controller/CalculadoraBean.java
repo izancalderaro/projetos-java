@@ -7,13 +7,14 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.ifnc.service.Calculadora;
-import com.ifnc.util.CalculadoraReal;
+import com.ifnc.service.NotaFinal;
+import com.ifnc.service.PesoDois;
 
 @Named
 @RequestScoped
 public class CalculadoraBean {
 
-	@Inject @CalculadoraReal
+	@Inject @PesoDois
 	private Calculadora calculadora;
 
 	private int a,b;
