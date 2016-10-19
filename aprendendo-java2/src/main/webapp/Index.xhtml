@@ -11,25 +11,36 @@
 <h:body>
 
 	<h:form id="frm">
-		<p:messages />
+		<p:messages autoUpdate="true"/>
 
 		<p:panelGrid columns="2">
+			<f:facet name="header">
+			  Calculadora com interface
+			</f:facet>
+
 			<p:outputLabel value="Valor A" for="a" />
-			<p:inputText id="a" required="true" value="#{calculadoraBean.a}"/>
+			<p:inputText id="a" required="true" value="#{calculadoraBean.a}"
+				converter="javax.faces.Float" />
 
 			<p:outputLabel value="Valor B" for="b" />
-			<p:inputText id="b" required="true" value="#{calculadoraBean.b}"/>
-			
-			<p:outputLabel value="Resultado"/>
-			<p:outputLabel value="#{calculadoraBean.resultado}"/>
+			<p:inputText id="b" required="true" value="#{calculadoraBean.b}"
+				converter="javax.faces.Float" />
 
-			<p:outputLabel value="#{calculadoraBean.calculadora}"/> 
-			
+			<p:outputLabel value="Resultado" />
+			<p:inputText value="#{calculadoraBean.resultado}"
+				converter="javax.faces.Float" />
+
+
+			<p:outputLabel value="#{calculadoraBean.calculadora}" />
+			<p:commandButton value="Executar" update="@form"
+				action="#{calculadoraBean.Calcular}" />
+
+			<f:facet name="footer">
+				<h4>Apenas um teste</h4>
+			</f:facet>
+
 		</p:panelGrid>
 
-        
-
- 		<p:commandButton value="Executar" update="@form" action="#{calculadoraBean.Calcular}"/>
 
 	</h:form>
 </h:body>
