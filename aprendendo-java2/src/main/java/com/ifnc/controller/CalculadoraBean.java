@@ -31,7 +31,8 @@ public class CalculadoraBean {
 
 		resultado = calculadora.soma(a, b);
 
-		System.out.println(resultado);
+		System.out.println(resultado); 
+		
 	}
 
 	public Calculadora getCalculadora() {
