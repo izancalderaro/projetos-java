@@ -31,7 +31,8 @@
 				converter="javax.faces.Float" />
 
 
-			<p:outputLabel value="#{calculadoraBean.calculadora}" />
+			<p:outputLabel value="#{calculadoraBean.calculadora}" /><br/>
+			<p:inputText value="#{calculadoraBean.usuario.nome}"/>
 			<p:commandButton value="Executar" update="@form"
 				action="#{calculadoraBean.Calcular}" />
 

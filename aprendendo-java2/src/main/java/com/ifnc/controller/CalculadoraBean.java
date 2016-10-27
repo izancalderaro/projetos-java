@@ -6,6 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.ifnc.model.Usuario;
 import com.ifnc.service.Calculadora;
 import com.ifnc.service.PesoDois;
 
@@ -13,18 +14,23 @@ import com.ifnc.service.PesoDois;
 @RequestScoped
 public class CalculadoraBean {
 
-	@Inject
+    @Inject	
 	@PesoDois
 	private Calculadora calculadora;
 
+
+    private Usuario usuario = new Usuario();
+    
 	private float a, b;
 
 	private float resultado;
+
 
 	@PostConstruct
 	public void init() {
 		a = 5;
 		b = 2;
+		usuario.setNome("Usuario 1");
 	}
 
 	public void Calcular() {
@@ -43,6 +49,11 @@ public class CalculadoraBean {
 		this.calculadora = calculadora;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	
+	
 	public float getA() {
 		return a;
 	}
