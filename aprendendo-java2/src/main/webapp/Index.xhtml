@@ -11,7 +11,7 @@
 <h:body>
 
 	<h:form id="frm">
-		<p:messages autoUpdate="true"/>
+		<p:messages autoUpdate="true" />
 
 		<p:panelGrid columns="2">
 			<f:facet name="header">
@@ -31,14 +31,24 @@
 				converter="javax.faces.Float" />
 
 
-			<p:outputLabel value="#{calculadoraBean.calculadora}" /><br/>
-			<p:inputText value="#{calculadoraBean.usuario.nome}"/>
+			<p:outputLabel value="#{calculadoraBean.calculadora}" />
+			<br />
+			<p:inputText value="#{calculadoraBean.usuario.nome}" />
 			<p:commandButton value="Executar" update="@form"
 				action="#{calculadoraBean.Calcular}" />
 
 			<f:facet name="footer">
 				<h4>Apenas um teste</h4>
 			</f:facet>
+
+			<p:selectOneMenu id="tipo" value="#{calculadoraBean.usuario.nome}">
+				<f:selectItem itemLabel="Selecione" />
+				<f:selectItems value="#{calculadoraBean.ratingEnum}" var="tipo" itemLabel="#{tipo.descricao}"
+					itemValue="#{tipo.descricao}" />
+			</p:selectOneMenu>
+
+
+
 
 		</p:panelGrid>
 

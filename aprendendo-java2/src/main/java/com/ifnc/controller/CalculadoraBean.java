@@ -6,6 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.ifnc.model.RatingEnum;
 import com.ifnc.model.Usuario;
 import com.ifnc.service.Calculadora;
 import com.ifnc.service.PesoDois;
@@ -16,13 +17,10 @@ public class CalculadoraBean {
 
     @Inject	
 	@PesoDois
-	private Calculadora calculadora;
-
+	private Calculadora calculadora;    
 
     private Usuario usuario = new Usuario();
-    
-	private float a, b;
-
+   	private float a, b;
 	private float resultado;
 
 
@@ -43,6 +41,10 @@ public class CalculadoraBean {
 
 	public Calculadora getCalculadora() {
 		return calculadora;
+	}
+
+	public RatingEnum[] getRatingEnum() {
+		return RatingEnum.values();
 	}
 
 	public void setCalculadora(Calculadora calculadora) {
