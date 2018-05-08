@@ -20,31 +20,54 @@
         </div>
 </nav>
 
-   <form action="" method="post" class="form-horizontal" >
+   <form action="/clientes" method="post" class="form-horizontal" >
+      <div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+        <span th:text="${mensagem}"></span>      
+      </div>      
    
       <div class="panel panel-default">
     		<div class="panel-heading">
     			<h1 class="panel-title">Novo título</h1>
     		</div>
     		
-           <div class="panel-body">
+           <div class="panel-body" >
   			 
   			<div class="form-group">
-  			     <label for="nome" class="col-sm2 control-label">Nome</label>
+  			     <label for="nome" class="col-sm-2 control-label">Nome</label>
   				 <div class="col-sm-4"> 
-  				  <input type="text" id="nome" name="nome" />
+  				  <input class="form-control" type="text" id="nome" name="nome" />
   				 </div> 				   			
   			</div> 
   		    <div class="form-group">
-  			     <label for="nome" class="col-sm2 control-label">Nome</label>
-  				 <div class="col-sm-4">  
-  			   	 <input type="text" name="dataNascimento" />
+  			     <label for="dataNascimento" class="col-sm-2 control-label">Data de Nascimento</label>
+  				 <div class="col-sm-2">  
+  			   	 <input class="form-control" type="text" id="dataNascimento" name="dataNascimento" />
   			   	 </div>
   			</div>
   			   	 
-  			   	 
-    		 <input type="text" name="sexo" />
-    	     <input type="text" name="salario" />
+  			<div class="form-group">
+  			    <label for="sexo" class="col-sm-2 control-label">Sexo</label>   	 
+    		    <div class="col-sm-2">
+    		    	<select class="form-control" id="sexo" name="sexo">
+    		            <option value="F">Feminino</option>
+    		            <option value="M">Masculino</option>
+    		    	</select>
+    		    </div>
+    		</div> 
+  			
+  			<div class="form-group">
+  			    <label for="salario" class="col-sm-2 control-label">Salário</label>   	 
+    		    <div class="col-sm-2">
+    		    <input class="form-control" type="text" id="salario" name="salario" />
+    		    </div>
+    		</div> 
+    	     
+    	    <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                 <button class="btn btn-primary" type="submit">Salvar</button>
+              </div>    	        	    
+    	    </div> 
+    	     
     	     
            </div>
    
