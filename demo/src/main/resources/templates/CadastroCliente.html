@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="LayoutPadrao">
 <head>
-<meta charset="UTF-8"/>
-<title>Cadastro de Clientes</title>
-
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
-
+  <meta charset="UTF-8"/>
+  <title>Cadastro de Clientes</title>
 </head>
 <body>
 
-<nav class="navbar navbar-inverse navbar-static-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                </a>
-            </div>
-        </div>
-</nav>
+<section layout:fragment="conteudo">
 
    <form action="/clientes" method="post" class="form-horizontal" >
       <div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
@@ -66,8 +57,7 @@
               <div class="col-sm-offset-2 col-sm-10">
                  <button class="btn btn-primary" type="submit">Salvar</button>
               </div>    	        	    
-    	    </div> 
-    	     
+    	    </div>    	     
     	     
            </div>
    
@@ -75,7 +65,7 @@
    
    </form>
  
-   
+  </section> 
 
    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
    <script type="text/javascript" src="/js/boostrap.min.js"></script>
