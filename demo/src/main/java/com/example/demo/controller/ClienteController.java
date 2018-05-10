@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.model.Cliente;
 import com.example.demo.model.Sexo;
@@ -33,16 +34,15 @@ public class ClienteController {
 	}
 	 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView salvar(@Validated Cliente cliente, Errors errors) {
-		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		
+	public String salvar(@Validated Cliente cliente, Errors errors, RedirectAttributes redirectAttributes) {
+				
 		if (errors.hasErrors()) {
-			return mv;
+			return CADASTRO_VIEW;
 		}
 		
 		clientes.save(cliente);
-		mv.addObject("mensagem" , "Cliente adicionado com sucesso");
-		return mv;
+		redirectAttributes.addFlashAttribute("mensagem" , "Cliente adicionado com sucesso");
+		return  "redirect:/clientes/novo";
 	}
 	
 	@RequestMapping
