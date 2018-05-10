@@ -11,7 +11,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
@@ -22,8 +27,11 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
+	@NotEmpty(message="Nome obrigatório")
+	@Size(max=60, message="O nome pode ter somente 60 caracteres")	
 	private String nome;
 	
+	@NotNull(message="Data de nascimento é obrigatoria")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
     @Temporal(TemporalType.DATE)		
 	private Date dataNascimento;
@@ -32,6 +40,9 @@ public class Cliente {
 	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 	
+	@NotNull(message="Salario é obrigatório")
+	@DecimalMin(value="0.01", message="Salário não pode ser menor que 0,01")
+	@DecimalMax(value="9999999.99", message="Salário não pode ser maior que R$ 9.999.999,00")
 	@NumberFormat(pattern="#,##0.00")
 	private BigDecimal salario;
 	
@@ -67,6 +78,12 @@ public class Cliente {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
+	
+	public boolean isMasculino() {
+		return Sexo.M.equals(this.sexo);
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

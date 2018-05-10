@@ -11,25 +11,35 @@
 
 <section layout:fragment="conteudo">
 
-   <form action="/clientes" method="post" class="form-horizontal" >
+   <form action="/clientes" method="post" class="form-horizontal" th:object="${cliente}">
       <div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
         <span th:text="${mensagem}"></span>      
       </div>      
    
+      <div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+         <div th:each="detailError : ${#fields.detailedErrors()}">
+          <span th:text="${detailError.message}"></span>
+         </div> 
+      </div>
+   
+   
       <div class="panel panel-default">
     		<div class="panel-heading">
-    			<h1 class="panel-title">Novo título</h1>
+    		 <div class="clearfix"> 
+    			<h1 class="panel-title aw-titulo-panel">Novo cliente</h1>
+    			<a class="btn btn-link aw-link-panel" href="/clientes">Voltar para pesquisa</a>
+    		 </div>
     		</div>
     		
            <div class="panel-body" >
   			 
-  			<div class="form-group">
+  			<div class="form-group" th:classappend="${#fields.hasErrors('nome')} ? has-error">
   			     <label for="nome" class="col-sm-2 control-label">Nome</label>
   				 <div class="col-sm-4"> 
   				  <input class="form-control" type="text" id="nome" name="nome" />
   				 </div> 				   			
   			</div> 
-  		    <div class="form-group">
+  		    <div class="form-group" th:classappend="${#fields.hasErrors('dataNascimento')} ? has-error">
   			     <label for="dataNascimento" class="col-sm-2 control-label">Data de Nascimento</label>
   				 <div class="col-sm-2">  
   			   	 <input class="form-control" type="text" id="dataNascimento" name="dataNascimento" />
@@ -40,13 +50,12 @@
   			    <label for="sexo" class="col-sm-2 control-label">Sexo</label>   	 
     		    <div class="col-sm-2">
     		    	<select class="form-control" id="sexo" name="sexo">
-    		            <option value="F">Feminino</option>
-    		            <option value="M">Masculino</option>
+    		            <option th:each="sexo : ${todosSexo}"  th:value="${sexo}" th:text="${sexo.descricao}"></option>   		            
     		    	</select>
     		    </div>
     		</div> 
   			
-  			<div class="form-group">
+  			<div class="form-group" th:classappend="${#fields.hasErrors('salario')} ? has-error">
   			    <label for="salario" class="col-sm-2 control-label">Salário</label>   	 
     		    <div class="col-sm-2">
     		    <input class="form-control" type="text" id="salario" name="salario" />
@@ -57,18 +66,12 @@
               <div class="col-sm-offset-2 col-sm-10">
                  <button class="btn btn-primary" type="submit">Salvar</button>
               </div>    	        	    
-    	    </div>    	     
-    	     
-           </div>
-   
-   </div>
-   
+    	    </div>    	       
+          </div>
+        </div>
    </form>
- 
   </section> 
 
-   <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
-   <script type="text/javascript" src="/js/boostrap.min.js"></script>
-    
+
 </body>
 </html>

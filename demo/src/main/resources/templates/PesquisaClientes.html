@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="LayoutPadrao">
+<head>
+<meta charset="UTF-8"/>
+<title>Pesquisa de clientes</title>
+</head>
+<body>
+
+<section layout:fragment="conteudo">
+	<div class="panel panel-default">
+		  <div class="panel-heading">
+			 <div class="clearfix">	
+				<h1 class="panel-title aw-titulo-panel">Pesquisa de Clientes</h1>
+				<a class="btn btn-link aw-link-panel" href="/clientes/novo">Novo cliente</a>
+			</div>
+		  </div>	
+
+      
+        <div class="panel-body">
+         <table class="table table-bordered table-striped">
+				<thead>
+	   				<tr>
+	   					<th class="text-center col-md-1">#</th>
+	   					<th>Nome</th>
+	   					<th class="text-center col-md-2">Data de nascimento</th>
+	   					<th class="text-center col-md-2">Sexo</th>
+	   					<th class="text-center col-md-2">Salário</th>
+	   					<th class="col-md-1"></th>
+	   				</tr>
+	   			</thead>
+				<tbody>
+	   				<tr th:each="cliente : ${todosClientes}">
+	   					<td class="text-center" th:text="${cliente.codigo}">1</td>
+	   					<td th:text="${cliente.nome}">Nome</td>
+	   					<td class="text-center" th:text="${{cliente.dataNascimento}}">Data de nascimento</td>
+	   					<td class="text-center">
+	   					    <span th:text="${cliente.sexo.descricao}" 
+	   					     th:classappend="${cliente.masculino ? 'label label-primary' : 'label label-info'}"></span>
+	   					
+	   					</td>
+	   					<td class="text-center" th:text="|R$ ${{cliente.salario}}|">Salário</td>
+	   					<td class="text-center"></td>
+	   				</tr>
+	   				
+	   				<tr>
+	   				 <td colspan="6" th:if="${#lists.isEmpty(todosClientes)}">Nenhum cliente cadastrado</td>	   				
+	   				</tr>
+	   				
+	   			</tbody>         
+         </table>
+        
+         </div> 
+     </div>
+
+</section>
+
+
+</body>
+</html>
