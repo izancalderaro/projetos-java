@@ -6,6 +6,13 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Pesquisa de clientes</title>
+<script type="text/javascript">
+
+$('#myModal').on('shown.bs.modal', function () {
+	  $('#myInput').focus()
+	});
+</script>
+
 </head>
 <body>
 
@@ -42,7 +49,14 @@
 	   					
 	   					</td>
 	   					<td class="text-center" th:text="|R$ ${{cliente.salario}}|">Salário</td>
-	   					<td class="text-center"></td>
+	   					<td class="text-center">
+	   					  <a th:href="@{/clientes/{codigo}(codigo=${cliente.codigo})}" class="btn btn-link btn-xs">
+	   					 	<span class="glyphicon glyphicon-pencil"></span>	
+	   					  </a>
+	   					  <a class="btn btn-link btn-xs" id="myInput" data-toggle="modal" data-target="#myModal">
+	   					 	<span class="glyphicon glyphicon-trash"></span>	
+	   					  </a>
+	   					</td>
 	   				</tr>
 	   				
 	   				<tr>
@@ -57,6 +71,23 @@
 
 </section>
 
+<div class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" id="myModal">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 </body>
 </html>

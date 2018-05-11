@@ -3,12 +3,8 @@
     xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     
-<head>
-<meta charset="UTF-8"/>
-<title>Insert title here</title>
-</head>
 
-<body>
+
    <div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
         <span th:text="${mensagem}"></span>      
       </div>      
@@ -21,5 +17,4 @@
    
 
 
-</body>
 </html>
