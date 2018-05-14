@@ -52,7 +52,8 @@
 						  <a th:href="@{/clientes/{codigo}(codigo=${cliente.codigo})}" class="btn btn-link btn-xs"> 
 						   <span class="glyphicon glyphicon-pencil"></span>
 						  </a> 
-						<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#excluirModal">
+						<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#excluirModal" 
+						   th:attr="data-codigo=${cliente.codigo},data-nome=${cliente.nome}">
 						     <span class="glyphicon glyphicon-remove"></span>
 						</a></td>
 					</tr>
