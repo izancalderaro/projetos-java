@@ -7,7 +7,7 @@
   <meta charset="UTF-8"/>
   <title>Cadastro de Clientes</title>
 </head>
-<body>
+
 
 <section layout:fragment="conteudo">
 
@@ -50,7 +50,7 @@
   			<div class="form-group">
   			    <label for="sexo" class="col-sm-2 control-label">Sexo</label>   	 
     		    <div class="col-sm-2">
-    		    	<select class="form-control" id="sexo" name="sexo">
+    		    	<select class="form-control" th:field="*{sexo}">
     		            <option th:each="sexo : ${todosSexo}"  th:value="${sexo}" th:text="${sexo.descricao}"></option>   		            
     		    	</select>
     		    </div>
@@ -66,6 +66,4 @@
    </form>
   </section> 
 
-
-</body>
 </html>

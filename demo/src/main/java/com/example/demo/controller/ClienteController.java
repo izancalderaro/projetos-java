@@ -57,6 +57,7 @@ public class ClienteController {
 	
 	@RequestMapping("{codigo}")
 	public ModelAndView edicao(@PathVariable("codigo") Cliente cliente) {
+		//Cliente cliente = clientes.findOne(codigo);
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject(cliente);
 		return mv;
@@ -65,6 +66,14 @@ public class ClienteController {
 	@ModelAttribute("todosSexo")
 	public List<Sexo> todosSexo(){
 		return Arrays.asList(Sexo.values());
+	}
+	
+	@RequestMapping("/teste")
+	public ModelAndView teste() {
+        List<Cliente> todosClientes = clientes.findAll();
+        ModelAndView mv = new ModelAndView("TesteModal");
+        mv.addObject("todosClientes", todosClientes);
+        return mv;
 	}
 	
 	
