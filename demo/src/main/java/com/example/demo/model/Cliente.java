@@ -14,6 +14,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -36,7 +37,6 @@ public class Cliente {
     @Temporal(TemporalType.DATE)		
 	private Date dataNascimento;
 	
-
 	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 	
@@ -46,8 +46,27 @@ public class Cliente {
 	@NumberFormat(pattern="#,##0.00")
 	private BigDecimal salario;
 	
+	@NotNull
+	@Pattern(regexp = "^[\\w\\-]+(\\.[\\w\\-]+)*@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$", message="E-mail com formato incorreto.")
+	private String email;
+	
+	@Pattern(regexp = "\\(?\\b([0-9]{2})\\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})\\b", message="Telefone em formato incorreto")
+	private String telefone; 
 	
 	
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public BigDecimal getSalario() {
 		return salario;
 	}

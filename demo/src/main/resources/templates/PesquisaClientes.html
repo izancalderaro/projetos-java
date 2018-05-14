@@ -26,8 +26,10 @@
 					<tr>
 						<th class="text-center col-md-1">#</th>
 						<th>Nome</th>
+						<th class="text-center">E-mail</th>
+						<th class="text-center">Telefone</th>
 						<th class="text-center col-md-2">Data de nascimento</th>
-						<th class="text-center col-md-2">Sexo</th>
+						<th class="text-center col-md-1">Sexo</th>
 						<th class="text-center col-md-2">Salário</th>
 						<th class="col-md-1"></th>
 					</tr>
@@ -36,6 +38,8 @@
 					<tr th:each="cliente : ${todosClientes}">
 						<td class="text-center" th:text="${cliente.codigo}">1</td>
 						<td th:text="${cliente.nome}">Nome</td>
+						<td th:text="${cliente.email}">E-mail</td>
+						<td th:text="${cliente.telefone}">Telefone</td>
 						<td class="text-center" th:text="${{cliente.dataNascimento}}">Data
 							de nascimento</td>
 						<td class="text-center"><span

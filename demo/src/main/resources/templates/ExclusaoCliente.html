@@ -4,24 +4,25 @@
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     
 		<!-- Modal -->
-		<div class="modal fade" id="excluirModal" tabindex="-1">
+		<div class="modal fade" id="excluirModal" tabindex="-1" data-keyboard="false" data-backdrop="static">
 			<div class="modal-dialog">	
-			 <form action="/clientes" method="post">
+			 <form action="/clientes/3" method="post">
 			  <input type="hidden" name="_method" value="DELETE" />
 			   
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						   <span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title">Modal title</h4>
+						<h4 class="modal-title">Exclusão de Cliente</h4>
 					</div>
-					<div class="modal-body">...</div>
+					
+					<div class="modal-body">Confirme a exclusão do cliente </div>
+					
+					
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save
-							changes</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-primary">Excluir</button>
 					</div>
 				</div>
 			 </form>

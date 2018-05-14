@@ -63,6 +63,12 @@ public class ClienteController {
 		return mv;
 	}
 	
+	@RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
+	public String excluir(@PathVariable Long codigo) {
+		clientes.delete(codigo);
+		return "redirect:/clientes";
+	}
+	
 	@ModelAttribute("todosSexo")
 	public List<Sexo> todosSexo(){
 		return Arrays.asList(Sexo.values());
