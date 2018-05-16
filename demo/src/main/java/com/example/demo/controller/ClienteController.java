@@ -64,8 +64,9 @@ public class ClienteController {
 	}
 	
 	@RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
-	public String excluir(@PathVariable Long codigo) {
+	public String excluir(@PathVariable Long codigo, RedirectAttributes redirectattributes) {
 		clientes.delete(codigo);
+		redirectattributes.addFlashAttribute("mensagem","Cliente excluído com sucesso");
 		return "redirect:/clientes";
 	}
 	

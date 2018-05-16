@@ -13,7 +13,8 @@
 
    <form action="/clientes" method="post" class="form-horizontal" th:object="${cliente}">
  
-   <div  layout:include="Mensagem"></div>
+   <div  layout:include="MensagemGeral"></div>
+   <div  layout:include="MensagemErro"></div>
    
       <div class="panel panel-default">
     		<div class="panel-heading">

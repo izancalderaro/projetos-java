@@ -6,7 +6,7 @@
 		<!-- Modal -->
 		<div class="modal fade" id="excluirModal" tabindex="-1" data-keyboard="false" data-backdrop="static">
 			<div class="modal-dialog">	
-			 <form action="/clientes" method="post">
+			 <form action="/clientes" th:attr="data-url-base='/clientes'" method="post">
 			  <input type="hidden" name="_method" value="DELETE" />
 			   
 				<div class="modal-content">
@@ -18,9 +18,11 @@
 					</div>
 					
 					<div class="modal-body">
-					  Confirmar a exclusão do cliente: <h3><span class="label label-info" id="nome"></span></h3>
+					 Confirmar a exclusão do cliente: 
+					  <h3><span class="label label-info" id="nome"></span></h3>
 					  <hr/>
-					  Código:  <h3><span class="label label-danger" id="codigo"></span></h3>
+					  Código:  
+					 <h3><span class="label label-danger" id="codigo"></span></h3>
 					</div>
 					
 					
