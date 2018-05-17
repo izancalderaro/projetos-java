@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -41,9 +42,14 @@ public class ClienteController {
 			return CADASTRO_VIEW;
 		}
 		
-		clientes.save(cliente);
-		redirectAttributes.addFlashAttribute("mensagem" , "Cliente adicionado com sucesso");
-		return  "redirect:/clientes/novo";
+	  try {			
+		   clientes.save(cliente);
+		   redirectAttributes.addFlashAttribute("mensagem" , "Cliente adicionado com sucesso");
+		   return  "redirect:/clientes/novo";
+	  } catch(DataIntegrityViolationException e){		  
+		   errors.rejectValue("dataNascimento", null, "Formato de data inválido");
+		   return CADASTRO_VIEW;
+	  }
 	}
 	
 	@RequestMapping
