@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -83,6 +84,13 @@ public class ClienteController {
 		redirectattributes.addFlashAttribute("mensagem","Cliente excluído com sucesso");
 		return "redirect:/clientes";
 	}
+	
+	@RequestMapping(value="/{codigo}/mudanca", method=RequestMethod.PUT)
+	public @ResponseBody String mudanca(@PathVariable Long codigo) {
+        cadastroClienteService.mudanca(codigo);		
+		return null;
+	}
+	
 	
 	@ModelAttribute("todosSexo")
 	public List<Sexo> todosSexo(){

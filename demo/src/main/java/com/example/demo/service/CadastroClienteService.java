@@ -5,6 +5,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Cliente;
+import com.example.demo.model.Sexo;
 import com.example.demo.repository.Clientes;
 
 @Service
@@ -28,6 +29,12 @@ public class CadastroClienteService {
 
 		clientes.delete(codigo);
 		
+	}
+
+	public void mudanca(Long codigo) {
+     Cliente cliente = clientes.findOne(codigo);
+     cliente.setSexo(Sexo.F);
+     clientes.save(cliente);
 	}
 
 }
