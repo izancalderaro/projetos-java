@@ -10,23 +10,24 @@ import com.example.demo.repository.Clientes;
 @Service
 public class CadastroClienteService {
 
-	
 	@Autowired
 	private Clientes clientes;
-	
-	public void excluir(Long codigo) {
-		clientes.delete(codigo);
-			
-	}
 
 	public void salvar(Cliente cliente) {
+
 		try {
-		  clientes.save(cliente);   	
+			clientes.save(cliente);
 		} catch (DataIntegrityViolationException e) {
-			throw new IllegalArgumentException("Formato de data inválido");   			
-		}		
+
+			throw new IllegalArgumentException("Formato de Data Inválido");
+		}
+
 	}
 
-	
-	
+	public void excluir(Long codigo) {
+
+		clientes.delete(codigo);
+		
+	}
+
 }

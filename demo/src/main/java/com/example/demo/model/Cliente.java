@@ -51,7 +51,8 @@ public class Cliente {
     //@Email(message="Informe um E-mail válido") //não exige ponto e a região para válidar o email Ex.: (teste@teste.br), somente (teste@teste)
 	private String email;
 	
-	@Pattern(regexp = "\\(?\\b([0-9]{2})\\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})\\b", message="Telefone em formato incorreto")
+	@Pattern(regexp = "\\(?\\b([0-9]{2})\\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4,})\\b", message="Telefone em formato incorreto")
+	@NotEmpty(message="Telefone obrigatório")	
 	private String telefone; 
 	
 	
