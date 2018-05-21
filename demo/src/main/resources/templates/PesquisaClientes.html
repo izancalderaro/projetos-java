@@ -56,8 +56,14 @@
 						  </a> 
 						<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#excluirModal" 
 						   th:attr="data-codigo=${cliente.codigo},data-nome=${cliente.nome}" title="Excluir" rel="tooltip">
-						     <span class="glyphicon glyphicon-remove"></span>
-						</a></td>
+						     <span class="glyphicon glyphicon-remove"></span>					     					     
+						</a>
+						<a class="btn btn-link btn-xs js-mudanca-sexo" th:if="${cliente.masculino}" 
+						      title="Mudar sexo" rel="tooltip" 
+						      th:href="@{/clientes/{codigo}/mudanca(codigo=${cliente.codigo})}">
+							 <span class="glyphicon glyphicon-pushpin" ></span>					
+						</a>										
+						</td>
 					</tr>
 
 					<tr>
