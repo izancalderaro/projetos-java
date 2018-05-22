@@ -2,8 +2,8 @@ package com.example.demo.model;
 
 public enum Sexo {
 
-	M("Masculino"),
-	F("Feminino");
+	M("Nível Superior - NS"),
+	F("Nível Médio - NM");
 	
 	private String descricao;
 

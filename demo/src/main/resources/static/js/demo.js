@@ -24,20 +24,23 @@ $('#excluirModal').on('show.bs.modal', function(event) {
 
 /**
  *
- * forma atual de preparação de um doc .js
+ * forma atual quando um documento html estiver preparado
  * $(function () {
  * 
  * });
- * @returns
  */
 
 $(document).ready(function() {
+	
 	$('[rel="tooltip"]').tooltip();
+	
 	$('[alt="tooltip"]').tooltip(); // Dos campos e-mail e telefone
 	// $('#currency').maskMoney({decimal:',',thousands:'.',allowZero:'true'});
+	
 	$('#currency').mask('000.000,00', {
 		reverse : true
 	});
+	
 	$('#datepicker').datepicker({
 		format : 'dd/mm/yyyy',
 		// startDate: '-3d',
@@ -46,34 +49,41 @@ $(document).ready(function() {
 		todayHighlight : 'true',
 		orientation : 'bottom'
 	});
+	
 	$('#phone').mask('(00) 0000-00009');
 
 	$('.js-mudanca-sexo').on('click', function(event) {
+		
 		event.preventDefault();
-		// alert('ok');
-		// console.log("clicou");
 
-		var btnMudar = $(event.currentTarget);
-		var urlMudar = btnMudar.attr('href');
-        
-		//console.log('urlMudar', urlMudar);
+		var button = $(event.currentTarget);
+		var buttonUrl = button.attr('href');
+		var buttonCodigo = button.data('codigo');      
 
 		var response = $.ajax({
-			 url: urlMudar,
+			 url: buttonUrl,
 			 method: 'PUT'
 			});	
 		
 		response.done(function (e){
-			btnMudar.hide();
+
+			$('[data-role='+buttonCodigo+']').text(e);
+			$('[data-role='+buttonCodigo+']').toggleClass('label-primary label-info');	
+			button.hide();
 			
 		});
 
 		response.fail(function (e){
-			
+			alert('Problema de comunicação');
+			console.log('Problema de comunicação');
 		});		
 		
 	});
 
+	
+	//$('#data_table').DataTable();
+	
+	
 });
 
 /**
@@ -81,13 +91,18 @@ $(document).ready(function() {
  * 
  * =========Bootstrap datepicker=========
  * 
- * data-provide="datepicker" data-date-format="dd/mm/yyyy"
- * data-date-language="pt-BR" data-date-autoclose="true"
- * data-date-today-highlight="true" data-date-orientation="bottom"
+ * data-provide="datepicker" 
+ * data-date-format="dd/mm/yyyy"
+ * data-date-language="pt-BR" 
+ * data-date-autoclose="true"
+ * data-date-today-highlight="true" 
+ * data-date-orientation="bottom"
  * 
  * =========Jquery maskMoney=========
  * 
- * data-affixes-stay="true" data-prefix="R$ " data-thousands="."
+ * data-affixes-stay="true" 
+ * data-prefix="R$ " 
+ * data-thousands="."
  * data-decimal=","
  * 
  */

@@ -5,9 +5,11 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>Clientes - Layout</title>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="/css/style.css" />
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.standalone.css" />	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-datepicker.standalone.css}" />	
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css" />
+  	
 </head>
 <body>
   <header  layout:include="Cabecalho"></header>
@@ -15,16 +17,18 @@
   <section layout:fragment="conteudo"></section>
   
 
-   <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
-   <script type="text/javascript" src="/js/bootstrap.js"></script>
-   <script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
-   <script type="text/javascript" src="/js/bootstrap-datepicker.pt-BR.min.js"></script>   
+   <script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+   <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+   <script type="text/javascript" th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+   <script type="text/javascript" th:src="@{/js/bootstrap-datepicker.pt-BR.min.js}"></script>   
 <!--    <script type="text/javascript" src="/js/jquery.maskMoney.min.js"></script> -->
-   <script type="text/javascript" src="/js/jquery.mask.min.js"></script>
-   <script type="text/javascript" src="/js/demo.js"></script>
+   <script type="text/javascript" th:src="@{/js/jquery.mask.min.js}"></script>
+   <script type="text/javascript" th:src="@{/js/demo.js}"></script>
 
 <!--    <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script> -->
 <!--    <script type="text/javascript" src="/js/bootstrap.min.js"></script> -->
+   
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
    
 </body>
 </html>

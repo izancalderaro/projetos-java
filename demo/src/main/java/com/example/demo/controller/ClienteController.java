@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -31,6 +32,7 @@ public class ClienteController {
 	
 	@Autowired
 	private CadastroClienteService cadastroClienteService;
+	
 	
 	
 	@RequestMapping("/novo")
@@ -62,8 +64,9 @@ public class ClienteController {
 	}
 	
 	@RequestMapping
-	public ModelAndView pesquisar() {
-            List<Cliente> todosClientes = clientes.findAll();
+	public ModelAndView pesquisar(@RequestParam(defaultValue = "%") String descricao) {
+            List<Cliente> todosClientes = clientes.findBynomeContaining(descricao);
+            
             ModelAndView mv = new ModelAndView("PesquisaClientes");
             mv.addObject("todosClientes", todosClientes);
             return mv;
@@ -87,8 +90,7 @@ public class ClienteController {
 	
 	@RequestMapping(value="/{codigo}/mudanca", method=RequestMethod.PUT)
 	public @ResponseBody String mudanca(@PathVariable Long codigo) {
-        cadastroClienteService.mudanca(codigo);		
-		return null;
+       return cadastroClienteService.mudanca(codigo);		
 	}
 	
 	

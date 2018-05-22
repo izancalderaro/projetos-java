@@ -31,10 +31,12 @@ public class CadastroClienteService {
 		
 	}
 
-	public void mudanca(Long codigo) {
+	public String mudanca(Long codigo) {
      Cliente cliente = clientes.findOne(codigo);
      cliente.setSexo(Sexo.F);
      clientes.save(cliente);
+    
+     return Sexo.F.getDescricao();
 	}
 
 }
