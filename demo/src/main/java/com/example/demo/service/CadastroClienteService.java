@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.model.Cliente;
 import com.example.demo.model.Sexo;
 import com.example.demo.repository.Clientes;
+import com.example.demo.repository.filter.ClienteFiltro;
 
 @Service
 public class CadastroClienteService {
@@ -37,6 +40,12 @@ public class CadastroClienteService {
      clientes.save(cliente);
     
      return Sexo.F.getDescricao();
+	}
+
+	public List<Cliente> filtrar(ClienteFiltro clienteFiltro) {
+	    String descricao = clienteFiltro.getNome() == null ? "%": clienteFiltro.getNome();		    
+        return clientes.findBynomeContaining(descricao);
+		        
 	}
 
 }

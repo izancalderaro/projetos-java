@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -19,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.demo.model.Cliente;
 import com.example.demo.model.Sexo;
 import com.example.demo.repository.Clientes;
+import com.example.demo.repository.filter.ClienteFiltro;
 import com.example.demo.service.CadastroClienteService;
 
 @Controller
@@ -64,13 +64,14 @@ public class ClienteController {
 	}
 	
 	@RequestMapping
-	public ModelAndView pesquisar(@RequestParam(defaultValue = "%") String descricao) {
-            List<Cliente> todosClientes = clientes.findBynomeContaining(descricao);
-            
+	//public ModelAndView pesquisar(@RequestParam(defaultValue = "%") String descricao) {
+	public ModelAndView pesquisar(@ModelAttribute("clienteFiltro") ClienteFiltro clienteFiltro) {
+		
+            List<Cliente> todosClientes = cadastroClienteService.filtrar(clienteFiltro);    
+		
             ModelAndView mv = new ModelAndView("PesquisaClientes");
             mv.addObject("todosClientes", todosClientes);
-            return mv;
-		
+            return mv;		
 	}                                   
 	
 	@RequestMapping("{codigo}")
