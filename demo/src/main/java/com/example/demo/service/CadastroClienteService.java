@@ -37,7 +37,7 @@ public class CadastroClienteService {
 	public String mudanca(Long codigo) {
      Cliente cliente = clientes.findOne(codigo);
      cliente.setSexo(Sexo.F);
-     clientes.save(cliente);
+     clientes.save(cliente); 
     
      return Sexo.F.getDescricao();
 	}

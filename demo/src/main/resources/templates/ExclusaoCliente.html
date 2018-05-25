@@ -6,7 +6,7 @@
 		<!-- Modal -->
 		<div class="modal fade" id="excluirModal" tabindex="-1" data-keyboard="false" data-backdrop="static">
 			<div class="modal-dialog">	
-			 <form action="/clientes" th:attr="data-url-base='/clientes'" method="post">
+			 <form th:action="@{/clientes}" th:attr="data-url-base='@{/clientes}'" method="post">
 			  <input type="hidden" name="_method" value="DELETE" />
 			   
 				<div class="modal-content">

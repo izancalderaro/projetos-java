@@ -11,7 +11,7 @@
 
 <section layout:fragment="conteudo">
 
-   <form action="/clientes" method="post" class="form-horizontal" th:object="${cliente}">
+   <form th:action="@{/clientes}" method="post" class="form-horizontal" th:object="${cliente}">
  
    <div  layout:include="MensagemGeral"></div>
    <div  layout:include="MensagemErro"></div>
