@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.model.Cliente;
 import com.example.demo.model.Sexo;
-import com.example.demo.repository.Clientes;
+/*import com.example.demo.repository.Clientes;*/
 import com.example.demo.repository.filter.ClienteFiltro;
 import com.example.demo.service.CadastroClienteService;
 
@@ -27,8 +27,8 @@ public class ClienteController {
 
 	private static final String CADASTRO_VIEW = "CadastroCliente";
 		
-	@Autowired
-	private Clientes clientes;
+/*	@Autowired
+	private Clientes clientes;*/
 	
 	@Autowired
 	private CadastroClienteService cadastroClienteService;
@@ -100,13 +100,13 @@ public class ClienteController {
 		return Arrays.asList(Sexo.values());
 	}
 	
-	@RequestMapping("/teste")
+/*	@RequestMapping("/teste")
 	public ModelAndView teste() {
         List<Cliente> todosClientes = clientes.findAll();
         ModelAndView mv = new ModelAndView("TesteModal");
         mv.addObject("todosClientes", todosClientes);
         return mv;
-	}
+	}*/
 	
 	
 }
